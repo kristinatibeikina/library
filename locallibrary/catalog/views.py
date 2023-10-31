@@ -2,6 +2,17 @@ from django.shortcuts import render
 from .models import Book, Author, BookInstance, Genre
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin
+
+
+class MyView(PermissionRequiredMixin, ):
+    permission_required = 'catalog.can_mark_returned'
+    permission_required = ('catalog.can_mark_returned', 'catalog.can_edit')
+
+
+class MyView(LoginRequiredMixin):
+    login_url = '/login/'
+    redirect_field_name = 'redirect_to'
 
 
 def index(request):
