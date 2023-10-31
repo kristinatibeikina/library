@@ -100,4 +100,7 @@ class AuthorDelete(DeleteView):
     success_url = reverse_lazy('authors')
 
 
+class AuthorListView(generic.ListView):
+    model = Author
+    paginate_by = 10
 
