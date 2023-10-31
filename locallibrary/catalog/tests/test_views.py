@@ -145,3 +145,4 @@ class RenewBookInstancesViewTest(TestCase):
             status='o',
         )
 
+
